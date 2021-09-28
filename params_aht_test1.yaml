@@ -1,0 +1,81 @@
+can_signal_generator:
+  can_dbc_file: "~/as_pacmod.dbc"
+  can_interface: "can3"
+  can_interface_type: "socketcan"
+  can_write_rate: 33.0 # [ Hz ] The rate to send all CAN signals at.
+  step_can_signals:
+    GLOBAL_CMD.CLEAR_FAULTS:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 1.0, 1.0, 30.0]
+    ACCEL_CMD.ACCEL_CMD:
+      value:     [ 0.0, 0.3, 0.5, 0.0,  0.3, 0.5, 0.0,  0.3, 0.0] # throttle range [ 0 - 1.0] 
+      duration: [10.0, 1.0, 2.0, 10.0, 1.0, 2.0, 10.0, 1.0, 1.0] # input duration of each value [s]
+    ACCEL_CMD.ENABLE:
+      value:     [ 0.0, 1.0]
+      duration: [ 3.0, 30.0]
+    ACCEL_CMD.CLEAR_OVERRIDE:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 1.0, 0.5, 0.5]
+    ACCEL_CMD.CLEAR_FAULTS:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 1.0, 0.5, 0.5]
+    ACCEL_CMD.IGNORE_OVERRIDES:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 3.0, 0.5, 0.5]
+    BRAKE_CMD.BRAKE_CMD:
+      value:     [ 1.0, 1.0]
+      duration: [ 3.0, 30.0]
+    BRAKE_CMD.ENABLE:
+      value:     [ 0.0, 1.0]
+      duration: [ 3.0, 30.0]
+    BRAKE_CMD.CLEAR_OVERRIDE:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 1.0, 0.5, 0.5]
+    BRAKE_CMD.CLEAR_FAULTS:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 1.0, 0.5, 0.5]
+    BRAKE_CMD.IGNORE_OVERRIDES:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 3.0, 0.5, 0.5]
+    SHIFT_CMD.SHIFT_CMD:
+      value:     [ 0.0, 3.0, 0.0 ]  # PARK = 0, REVERSE = 1, NEUTRAL = 2, FORWARD =3
+      duration: [ 6.0, 30.0, 1.0 ] # input duration of each value [s]
+    SHIFT_CMD.ENABLE:
+      value:     [ 0.0, 1.0]
+      duration: [ 3.0, 30.0]
+    SHIFT_CMD.CLEAR_OVERRIDE:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 1.0, 0.5, 0.5]
+    SHIFT_CMD.CLEAR_FAULTS:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 1.0, 0.5, 0.5]
+    SHIFT_CMD.IGNORE_OVERRIDES:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 3.0, 0.5, 0.5]
+    STEERING_CMD.ENABLE:
+      value:     [ 0.0, 1.0]
+      duration: [ 3.0, 30.0]
+    STEERING_CMD.CLEAR_OVERRIDE:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 1.0, 0.5, 0.5]
+    STEERING_CMD.CLEAR_FAULTS:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 1.0, 0.5, 0.5]
+    STEERING_CMD.IGNORE_OVERRIDES:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 3.0, 0.5, 0.5]
+    PARKING_BRAKE_CMD.ENABLE:
+      value:     [ 0.0, 1.0]
+      duration: [ 3.0, 30.0]
+    PARKING_BRAKE_CMD.CLEAR_OVERRIDE:
+      value:     [ 0.0, 1.0, 0.0]
+      duration: [ 1.0, 0.5, 0.5]
+    PARKING_BRAKE_CMD.PARKING_BRAKE_CMD:
+      value:     [ 1.0, 1.0]
+      duration: [ 3.0, 30.0]
+  sinusoidal_can_signals:
+    STEERING_CMD.POSITION: 
+      amplitude: 2.0 # radians 
+      period: 8.0    # period of the sine function [s] 
+      start_time: 4.0 # time at which the steering input starts to be published (relative to the start if the test)
+      duration: 20.0  # duration of the sinusoidal  [s] 

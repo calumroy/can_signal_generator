@@ -1,0 +1,18 @@
+can_signal_generator:
+  can_dbc_file: "~/pacmod_dbc/as_pacmod.dbc"
+  can_interface: "can3"
+  can_interface_type: "socketcan"
+  can_write_rate: 33.0 # [ Hz ] The rate to send all CAN signals at.
+  step_can_signals:
+    ACCEL_CMD.ACCEL_CMD:
+      value:     [ 0.0, 0.3, 0.5, 0.0,  0.3, 0.5, 0.0,  0.3, 0.0] # throttle range [ 0 - 1.0]
+      duration:  [10.0, 1.0, 2.0, 10.0, 1.0, 2.0, 10.0, 1.0, 1.0] # input duration of each value [s]
+    BRAKE_CMD.BRAKE_CMD:
+      value:     [ 1.0, 0.4, 0.2, 0.001]
+      time:      [ 5.0, 10.0, 14.0, 30.0]
+  sinusoidal_can_signals:
+    STEERING_CMD.POSITION:
+      amplitude: 2.0 # radians
+      period: 10.0    # period of the sine function [s]
+      start_time: 4.0 # time at which the steering input starts to be published (relative to the start if the test)
+      duration: 20.0  # duration of the sinusoidal  [s]
