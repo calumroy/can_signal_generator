@@ -14,7 +14,7 @@ NOTES:
     Make sure the specified CAN DBC file exist at the location speicifed in the config file.
     Make sure the CAN interface speicfied in the config exist and has been setup.
     E.g to setup a virtual can buses in linux run this bash script as sudo:  
-        ```
+        ```  
         #!/bin/bash
         (( EUID == 0 )) || { echo "This script must be run with root privileges" ; exit 1; }
         echo "setting up virtual can interface"
