@@ -1,5 +1,5 @@
 can_signal_generator:
-  can_dbc_file: "~/pacmod_dbc/as_pacmod.dbc"
+  can_dbc_file: "~/pacmod_dbc/as_pacmod.dbc" # This example configuration expects a CAN dbc file to be named and located here. Get this particualr DBC file from https://github.com/astuff/pacmod_dbc/blob/v3/as_pacmod.dbc
   can_interface: "can3"
   can_interface_type: "socketcan"
   can_write_rate: 33.0 # [ Hz ] The rate to send all CAN signals at.
