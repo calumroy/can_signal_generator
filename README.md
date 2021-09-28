@@ -8,12 +8,12 @@ This tool generates steps and sin wave signals for any field within a CAN messag
 It runs a test where multiple signals are generated depending on the config file.
 
 Simple usage example:
-    python3 can_signal_generator.py -p ./config/params_test1.yaml
+    `python3 can_signal_generator.py -p ./params_test1.yaml`
 
 NOTES:
     Make sure the specified CAN DBC file exist at the location speicifed in the config file.
     Make sure the CAN interface speicfied in the config exist and has been setup.
-    E.g to setup a virtual can buses in linux run this bash script as sudo:
+    E.g to setup a virtual can buses in linux run this bash script as sudo:  
         ```
         #!/bin/bash
         (( EUID == 0 )) || { echo "This script must be run with root privileges" ; exit 1; }
